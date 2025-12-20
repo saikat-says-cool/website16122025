@@ -49,6 +49,37 @@ const App = () => {
           .orb-1 { animation: float-1 20s ease-in-out infinite; }
           .orb-2 { animation: float-2 25s ease-in-out infinite; }
           .orb-3 { animation: float-3 22s ease-in-out infinite; }
+
+          @keyframes drift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(100px, 50px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+          }
+
+          @keyframes pulse-glow {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.5); }
+          }
+
+          @keyframes grid-drift {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100px); }
+          }
+
+          .animate-drift { animation: drift 30s ease-in-out infinite; }
+          .animate-pulse-glow { animation: pulse-glow 8s ease-in-out infinite; }
+          .animate-grid { animation: grid-drift 20s linear infinite; }
+
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-scroll {
+            animation: scroll 40s linear infinite;
+          }
+          .animate-scroll:hover {
+            animation-play-state: paused;
+          }
         `}
             </style>
 
@@ -61,6 +92,28 @@ const App = () => {
                 <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-blue-900/10 rounded-full blur-[120px] orb-1 mix-blend-screen"></div>
                 <div className="absolute bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-cyan-900/10 rounded-full blur-[120px] orb-2 mix-blend-screen"></div>
                 <div className="absolute top-[40%] left-[30%] w-[40vw] h-[40vw] bg-indigo-900/5 rounded-full blur-[100px] orb-3 mix-blend-screen"></div>
+
+                {/* Drifting Grid - Adds depth and "infra" feel */}
+                <div className="absolute inset-0 opacity-[0.05] [perspective:1000px]">
+                    <div
+                        className="absolute inset-[-100%] animate-grid"
+                        style={{
+                            backgroundImage: `linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)`,
+                            backgroundSize: '100px 100px',
+                            transform: 'rotateX(60deg) translateY(0)'
+                        }}
+                    ></div>
+                </div>
+
+                {/* Floating Abstract Streaks */}
+                <div className="absolute top-[20%] right-[10%] w-[1px] h-[30vh] bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent animate-drift"></div>
+                <div className="absolute bottom-[20%] left-[15%] w-[40vw] h-[1px] bg-gradient-to-r from-transparent via-blue-500/10 to-transparent animate-drift" style={{ animationDelay: '-5s' }}></div>
+                <div className="absolute top-[60%] left-[40%] w-[2px] h-[20vh] bg-gradient-to-b from-transparent via-white/10 to-transparent animate-drift" style={{ animationDelay: '-15s' }}></div>
+
+                {/* Pulsing Data Nodes */}
+                <div className="absolute top-[30%] left-[25%] w-2 h-2 bg-cyan-400 rounded-full blur-[4px] animate-pulse-glow"></div>
+                <div className="absolute bottom-[40%] right-[35%] w-3 h-3 bg-blue-400 rounded-full blur-[6px] animate-pulse-glow" style={{ animationDelay: '-3s' }}></div>
+                <div className="absolute top-[70%] left-[60%] w-2 h-2 bg-indigo-400 rounded-full blur-[4px] animate-pulse-glow" style={{ animationDelay: '-6s' }}></div>
 
                 {/* Noise overlay for texture (optional, keeps it grounded) */}
                 <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
@@ -122,6 +175,47 @@ const App = () => {
                             >
                                 Read the Protocol
                             </button>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Trust Symbols - Scrolling Logotypes */}
+                <section className="py-20 border-y border-white/5 overflow-hidden bg-black/20 backdrop-blur-sm">
+                    <div className="w-full mx-auto px-4 md:px-6 mb-10 text-center">
+                        <span className="text-[10px] tracking-[0.3em] text-gray-500 font-bold uppercase">Trusted by engineer-led firms</span>
+                    </div>
+
+                    <div className="relative flex overflow-hidden group">
+                        <div className="flex py-12 animate-scroll whitespace-nowrap">
+                            {/* First set of logos */}
+                            {[1, 2].map((set) => (
+                                <div key={set} className="flex items-center gap-24 mx-12">
+                                    <div className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white"><path d="M12 2L3 7V12C3 17.5 7 22 12 24C17 22 21 17.5 21 12V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                        <span className="text-xl font-bold tracking-tighter text-white">CYPHERNET</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" /><path d="M12 8V16" stroke="currentColor" strokeWidth="2" /><path d="M8 12H16" stroke="currentColor" strokeWidth="2" /></svg>
+                                        <span className="text-xl font-bold tracking-tighter text-white">AEGIS.DEFENSE</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white"><path d="M21 16V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18H19C20.1046 18 21 17.1046 21 16Z" stroke="currentColor" strokeWidth="2" /><path d="M10 10L14 14" stroke="currentColor" strokeWidth="2" /><path d="M14 10L10 14" stroke="currentColor" strokeWidth="2" /></svg>
+                                        <span className="text-xl font-bold tracking-tighter text-white">SENTINEL_AI</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /><path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                        <span className="text-xl font-bold tracking-tighter text-white">NEXUS.SEC</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white"><path d="M18 10L12 16L6 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                        <span className="text-xl font-bold tracking-tighter text-white">VAULT_GUARD</span>
+                                    </div>
+                                    <div className="flex items-center gap-3 opacity-40 hover:opacity-100 transition-opacity">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" strokeWidth="2" /><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" strokeWidth="2" /></svg>
+                                        <span className="text-xl font-bold tracking-tighter text-white">TITAN_SYSTEMS</span>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </section>
