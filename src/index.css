@@ -1,3 +1,132 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-paper: #F5F4F0;
+  --ink-primary: #1A1A1A;
+  --ink-secondary: #4A4A4A;
+  --accent-blue: #2B4C7E;
+  --border-sketch: #1A1A1A;
+}
+
+body {
+  background-color: var(--bg-paper);
+  color: var(--ink-primary);
+  font-family: 'IBM Plex Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* On-Brand Selection Color */
+::selection {
+  background: rgba(43, 76, 126, 0.2);
+  /* Accent Blue with opacity */
+  color: var(--ink-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Handmade Border Effect */
+.sketch-box {
+  border: 1px solid var(--border-sketch);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.sketch-box:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  background: var(--ink-primary);
+  color: var(--bg-paper);
+  border: 1px solid var(--ink-primary);
+  padding: 12px 24px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--ink-primary);
+  box-shadow: 3px 3px 0px var(--ink-primary);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--ink-primary);
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Scribble decoration */
+.highlight-scribble {
+  position: relative;
+  z-index: 1;
+}
+
+.highlight-scribble::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -2px;
+  right: -2px;
+  height: 8px;
+  background: rgba(43, 76, 126, 0.15);
+  z-index: -1;
+  transform: rotate(-1deg);
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
