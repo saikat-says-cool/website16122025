@@ -5,8 +5,8 @@ const Blueprint = () => {
 
     return (
         <div className="min-h-screen pt-32 px-6 md:px-12 max-w-5xl mx-auto animate-fade-in pb-20">
-            <h2 className="text-4xl md:text-5xl mb-4">The Technical Specification</h2>
-            <p className="font-tech text-gray-600 mb-16 max-w-2xl">
+            <h2 className="text-3xl sm:text-5xl mb-4">The Technical Specification</h2>
+            <p className="font-tech text-gray-600 mb-16 max-w-2xl text-sm sm:text-base">
                 We don't "do marketing". We install a sales engine. Here is the exact Standard Operating Procedure (SOP) we execute for your firm.
             </p>
 
@@ -20,20 +20,20 @@ const Blueprint = () => {
                     { step: "06", title: "Reply Handling", desc: "We filter the noise. You only get calendar invites from qualified prospects who have a problem. We handle the tire-kickers." },
                     { step: "07", title: "Optimization", desc: "Continuous refinement of targeting and messaging based on positive reply rates, not just open rates." }
                 ].map((item, idx) => (
-                    <div key={idx} className="relative pl-8 md:pl-12 pb-12 group">
+                    <div key={idx} className="relative pl-8 md:pl-12 pb-12 group last:pb-0">
                         <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-[#F5F4F0] border border-black group-last:bg-black"></div>
-                        <span className="font-tech text-xs text-gray-500 mb-1 block">PHASE {item.step}</span>
-                        <h3 className="text-2xl md:text-3xl mb-2 group-hover:text-[#2B4C7E] transition-colors">{item.title}</h3>
-                        <p className="font-tech text-sm md:text-base text-gray-600 max-w-xl leading-relaxed">
+                        <span className="font-tech text-[10px] sm:text-xs text-gray-500 mb-1 block">PHASE {item.step}</span>
+                        <h3 className="text-xl sm:text-3xl mb-2 group-hover:text-[#2B4C7E] transition-colors font-hand">{item.title}</h3>
+                        <p className="font-tech text-xs sm:text-base text-gray-600 max-w-xl leading-relaxed">
                             {item.desc}
                         </p>
                     </div>
                 ))}
             </div>
 
-            <div className="sketch-box bg-white p-8 mt-12">
-                <h3 className="text-xl mb-4 text-red-800">Operational Boundaries: What We Do NOT Do</h3>
-                <ul className="list-disc pl-5 font-tech text-sm space-y-2 text-gray-700">
+            <div className="sketch-box bg-white p-6 sm:p-8 mt-16">
+                <h3 className="text-xl mb-4 text-red-800 font-hand">Operational Boundaries: What We Do NOT Do</h3>
+                <ul className="list-disc pl-5 font-tech text-xs sm:text-sm space-y-3 text-gray-700">
                     <li>We do not send mass blasts (volume is controlled for safety).</li>
                     <li>We do not use generic "lead gen" lists; every prospect is verified.</li>
                     <li>We do not pitch different outcomes per sub-niche; we sell the conversation.</li>
@@ -41,8 +41,8 @@ const Blueprint = () => {
                 </ul>
             </div>
 
-            <div className="mt-12 text-center">
-                <button onClick={() => navigate('/booking')} className="btn-primary">
+            <div className="mt-16 text-center">
+                <button onClick={() => navigate('/booking')} className="btn-primary w-full sm:w-auto">
                     Discuss Implementation
                 </button>
             </div>

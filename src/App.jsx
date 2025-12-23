@@ -24,7 +24,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen pb-20">
+      <div className="min-h-screen pb-20 overflow-x-hidden">
         <Nav />
         <Routes>
           <Route path="/" element={<Hero />} />
