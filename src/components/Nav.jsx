@@ -9,6 +9,7 @@ const Nav = () => {
     const tabs = [
         { id: '', label: 'Overview' },
         { id: 'blueprint', label: 'The System' },
+        { id: 'architecture', label: 'The Stack' },
         { id: 'economics', label: 'Economics' },
         { id: 'casestudy', label: 'Proof' },
         { id: 'samples', label: 'Campaigns' },

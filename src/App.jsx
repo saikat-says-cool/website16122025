@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import Blueprint from './components/Blueprint';
+import Architecture from './components/Architecture';
 import Economics from './components/Economics';
 import CaseStudy from './components/CaseStudy';
 import Manifesto from './components/Manifesto';
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/blueprint" element={<Blueprint />} />
+          <Route path="/architecture" element={<Architecture />} />
           <Route path="/economics" element={<Economics />} />
           <Route path="/casestudy" element={<CaseStudy />} />
           <Route path="/samples" element={<EmailSamples />} />
