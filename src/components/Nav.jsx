@@ -11,6 +11,7 @@ const Nav = () => {
         { id: 'blueprint', label: 'The System' },
         { id: 'economics', label: 'Economics' },
         { id: 'casestudy', label: 'Proof' },
+        { id: 'samples', label: 'Campaigns' },
         { id: 'manifesto', label: 'Manifesto' }
     ];
 

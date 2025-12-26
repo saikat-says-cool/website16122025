@@ -6,6 +6,7 @@ import Blueprint from './components/Blueprint';
 import Economics from './components/Economics';
 import CaseStudy from './components/CaseStudy';
 import Manifesto from './components/Manifesto';
+import EmailSamples from './components/EmailSamples';
 import Booking from './components/Booking';
 import Footer from './components/Footer';
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/blueprint" element={<Blueprint />} />
           <Route path="/economics" element={<Economics />} />
           <Route path="/casestudy" element={<CaseStudy />} />
+          <Route path="/samples" element={<EmailSamples />} />
           <Route path="/manifesto" element={<Manifesto />} />
           <Route path="/booking" element={<Booking />} />
           {/* Default to Hero if route not found */}
