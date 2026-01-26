@@ -21,6 +21,7 @@ import Industrial from './pages/Industrial';
 import FinancialOperations from './pages/FinancialOperations';
 import Workflow from './pages/Workflow';
 import Consultation from './pages/Consultation';
+import CaseStudies from './pages/CaseStudies';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import GridBackground, { GlobeElement, SectionGrid, GridFloor } from './components/DecorativeElements';
@@ -341,6 +342,7 @@ const App = () => {
             <Route path="/enterprise-technology" element={<EnterpriseTechnology />} />
             <Route path="/industrial" element={<Industrial />} />
             <Route path="/financial-operations" element={<FinancialOperations />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
           </Routes>
         </main>
         <Footer />

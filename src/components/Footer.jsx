@@ -17,6 +17,7 @@ const Footer = () => {
                 <div className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4 max-w-2xl">
                     <Link to="/" className="hover:text-emerald-500 transition-colors">Home</Link>
                     <Link to="/workflow" className="hover:text-emerald-500 transition-colors">Workflow</Link>
+                    <Link to="/case-studies" className="hover:text-emerald-500 transition-colors">Case Studies</Link>
                     <Link to="/professional-services" className="hover:text-emerald-500 transition-colors">Professional Services</Link>
                     <Link to="/enterprise-technology" className="hover:text-emerald-500 transition-colors">Tech</Link>
                     <Link to="/industrial" className="hover:text-emerald-500 transition-colors">Industrial</Link>

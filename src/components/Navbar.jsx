@@ -21,6 +21,7 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'The Workflow', path: '/workflow' },
+        { name: 'Case Studies', path: '/case-studies' },
         { name: 'Professional Services', path: '/professional-services' },
         { name: 'Enterprise Tech', path: '/enterprise-technology' },
         { name: 'Industrial', path: '/industrial' },
