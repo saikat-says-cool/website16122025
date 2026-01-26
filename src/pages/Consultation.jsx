@@ -12,6 +12,7 @@ import {
     Sparkles
 } from 'lucide-react';
 import GridBackground, { GlobeElement, SectionGrid, GridFloor } from '../components/DecorativeElements';
+import { Helmet } from 'react-helmet-async';
 
 const Consultation = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -75,6 +76,11 @@ const Consultation = () => {
 
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 font-sans selection:bg-emerald-500/30">
+            <Helmet>
+                <title>Executive Briefing | Schedule an Outbound Strategy Call | Artificialyze</title>
+                <meta name="description" content="Request an executive briefing for your B2B firm. We provide a full audit of your outbound infrastructure and feasibility scores for $20k+ deal generation." />
+                <meta name="keywords" content="b2b consultation, executive briefing, pipeline audit, sales strategy call, outbound feasibility score" />
+            </Helmet>
 
             {/* Hero Headings */}
             <section className="relative pt-44 pb-12 px-6 overflow-hidden">

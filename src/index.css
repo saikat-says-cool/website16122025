@@ -47,3 +47,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #27272a;
 }
+
+@keyframes conveyor {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 80px;
+  }
+}
+
+.animate-conveyor {
+  animation: conveyor 10s linear infinite;
+}

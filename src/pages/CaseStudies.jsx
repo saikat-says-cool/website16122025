@@ -18,6 +18,7 @@ import {
     Globe
 } from 'lucide-react';
 import GridBackground, { GlobeElement, SectionGrid, GridFloor } from '../components/DecorativeElements';
+import { Helmet } from 'react-helmet-async';
 
 const CaseStudies = () => {
     const caseStudies = [
@@ -310,6 +311,11 @@ const CaseStudies = () => {
 
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 font-sans selection:bg-emerald-500/30">
+            <Helmet>
+                <title>B2B Case Studies | Proven Outbound Pipeline Results | Artificialyze</title>
+                <meta name="description" content="Explore real-world case studies of Artificialyze's pipeline engineering. From $1.2M pipeline for consultancies to proprietary deal flow for Private Equity firms." />
+                <meta name="keywords" content="B2B case studies, outbound results, lead generation success, private equity deal flow, tech sales pipeline" />
+            </Helmet>
             {/* Hero Section */}
             <section className="relative pt-44 pb-24 px-6 overflow-hidden border-b border-zinc-900">
                 <GridBackground />

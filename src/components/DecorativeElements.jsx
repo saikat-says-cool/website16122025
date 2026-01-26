@@ -83,7 +83,7 @@ export const GridFloor = () => {
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
             <div
-                className="absolute inset-0"
+                className="absolute inset-0 animate-conveyor"
                 style={{
                     backgroundImage: `linear-gradient(to right, #10b981 1px, transparent 1px), 
                                      linear-gradient(to bottom, #10b981 1px, transparent 1px)`,

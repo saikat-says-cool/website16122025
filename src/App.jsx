@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import {
   ShieldCheck,
   Zap,
@@ -22,6 +23,8 @@ import FinancialOperations from './pages/FinancialOperations';
 import Workflow from './pages/Workflow';
 import Consultation from './pages/Consultation';
 import CaseStudies from './pages/CaseStudies';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import GridBackground, { GlobeElement, SectionGrid, GridFloor } from './components/DecorativeElements';
@@ -78,6 +81,31 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 font-sans selection:bg-emerald-500/30">
+      <Helmet>
+        <title>Artificialyze | Outbound Engineering & Pipeline Machines for B2B</title>
+        <meta name="description" content="Strategic outbound systems and pipeline engineering for high-stakes B2B firms. We build autonomous machines that generate qualified meetings for deals over $20,000." />
+        <meta name="keywords" content="outbound engineering, pipeline engineering, B2B lead generation, sales infrastructure, enterprise outreach, account based marketing, private equity origination" />
+        <meta property="og:title" content="Artificialyze | Outbound Engineering & Pipeline Machines" />
+        <meta property="og:description" content="We build the machine. You close the deals. High-fidelity outbound infrastructure for enterprise growth." />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": "Artificialyze",
+              "description": "Strategic outbound systems and pipeline engineering for high-stakes B2B firms.",
+              "url": "https://artificialyze.com",
+              "potentialAction": {
+                "@type": "ReserveAction",
+                "target": "https://artificialyze.com/consultation",
+                "name": "Schedule Briefing"
+              },
+              "areaServed": "Global"
+            }
+          `}
+        </script>
+      </Helmet>
 
       {/* Hero Section */}
       <section className="relative pt-44 pb-32 px-6 overflow-hidden">
@@ -329,25 +357,29 @@ const HomePage = () => {
 
 const App = () => {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/workflow" element={<Workflow />} />
-            <Route path="/consultation" element={<Consultation />} />
-            <Route path="/professional-services" element={<ProfessionalServices />} />
-            <Route path="/enterprise-technology" element={<EnterpriseTechnology />} />
-            <Route path="/industrial" element={<Industrial />} />
-            <Route path="/financial-operations" element={<FinancialOperations />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/workflow" element={<Workflow />} />
+              <Route path="/consultation" element={<Consultation />} />
+              <Route path="/professional-services" element={<ProfessionalServices />} />
+              <Route path="/enterprise-technology" element={<EnterpriseTechnology />} />
+              <Route path="/industrial" element={<Industrial />} />
+              <Route path="/financial-operations" element={<FinancialOperations />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 };
 

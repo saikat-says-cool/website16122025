@@ -17,6 +17,7 @@ import {
     LineChart
 } from 'lucide-react';
 import GridBackground, { GlobeElement, SectionGrid, GridFloor } from '../components/DecorativeElements';
+import { Helmet } from 'react-helmet-async';
 
 const Workflow = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -50,6 +51,11 @@ const Workflow = () => {
 
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 font-sans selection:bg-emerald-500/30">
+            <Helmet>
+                <title>The Pipeline Workflow | Technical Sourcing & Burn-In Logic | Artificialyze</title>
+                <meta name="description" content="Discover the anatomy of a perfect B2B pipeline. Our 3-phase technical workflow covers domain insulation, signal-based sourcing, and qualified lead conversion." />
+                <meta name="keywords" content="sales workflow, outbound technical setup, lead warm-up protocol, b2b pipeline strategy, revenue calibration" />
+            </Helmet>
 
             {/* Hero Section */}
             <section className="relative pt-44 pb-24 px-6 overflow-hidden">
