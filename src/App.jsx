@@ -19,6 +19,7 @@ import {
 import ProfessionalServices from './pages/ProfessionalServices';
 import EnterpriseTechnology from './pages/EnterpriseTechnology';
 import Industrial from './pages/Industrial';
+import EngineeringFirms from './pages/EngineeringFirms';
 import FinancialOperations from './pages/FinancialOperations';
 import Workflow from './pages/Workflow';
 import Consultation from './pages/Consultation';
@@ -51,6 +52,7 @@ const HomePage = () => {
   const niches = [
     { title: "Professional Services", icons: <Users className="w-5 h-5" />, items: ["Management Consulting", "Compliance & Audit Firms", "Executive Search"], link: "/professional-services" },
     { title: "Enterprise Technology", icons: <Cpu className="w-5 h-5" />, items: ["Cybersecurity (MSSP/Pentest)", "SaaS / Enterprise Software", "Cybersecurity Consultancies"], link: "/enterprise-technology" },
+    { title: "Engineering Firms", icons: <Layers className="w-5 h-5" />, items: ["Mechanical & Industrial", "Electrical & Electronics", "Chemical & Process"], link: "/engineering-firms" },
     { title: "Industrial & Built Environment", icons: <Building2 className="w-5 h-5" />, items: ["Architecture & Planning", "Renewables / CapEx", "Logistics & Supply Chain"], link: "/industrial" },
     { title: "Financial Operations", icons: <ShieldCheck className="w-5 h-5" />, items: ["Investment Banking", "VC / Private Equity", "Commercial Real Estate"], link: "/financial-operations" }
   ];
@@ -369,6 +371,7 @@ const App = () => {
               <Route path="/consultation" element={<Consultation />} />
               <Route path="/professional-services" element={<ProfessionalServices />} />
               <Route path="/enterprise-technology" element={<EnterpriseTechnology />} />
+              <Route path="/engineering-firms" element={<EngineeringFirms />} />
               <Route path="/industrial" element={<Industrial />} />
               <Route path="/financial-operations" element={<FinancialOperations />} />
               <Route path="/case-studies" element={<CaseStudies />} />

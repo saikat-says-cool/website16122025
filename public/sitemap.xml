@@ -37,6 +37,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://artificialyze.com/engineering-firms</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://artificialyze.com/industrial</loc>
     <lastmod>2026-01-26</lastmod>
     <changefreq>monthly</changefreq>

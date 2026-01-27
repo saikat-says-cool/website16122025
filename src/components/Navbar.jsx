@@ -37,6 +37,7 @@ const Navbar = () => {
         { name: 'Intelligence', path: '/blog' },
         { name: 'Professional', path: '/professional-services' },
         { name: 'Tech', path: '/enterprise-technology' },
+        { name: 'Engineering', path: '/engineering-firms' },
         { name: 'Industrial', path: '/industrial' },
         { name: 'Finance', path: '/financial-operations' },
     ];
