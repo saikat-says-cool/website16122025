@@ -1,29 +1,48 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import Logo from './Logo';
 
 const Footer = () => {
     return (
-        <footer className="bg-black py-16 px-6 border-t border-zinc-900 text-center md:text-left">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] text-zinc-600 font-light uppercase tracking-[0.3em] gap-12">
-                <div className="flex flex-col items-center md:items-start gap-3">
-                    <div className="flex items-center gap-2 mb-2">
-                        <Logo className="w-6 h-6" />
-                        <div className="text-zinc-400 font-bold tracking-tighter text-lg">ARTIFICIALYZE</div>
+        <footer style={{
+            padding: '6rem 4rem',
+            borderTop: '1px solid #eaeaea',
+            marginTop: 'auto',
+            backgroundColor: '#fff'
+        }}>
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                gap: '4rem',
+                maxWidth: '1400px',
+                margin: '0 auto'
+            }}>
+                <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '2rem' }}>
+                        <Logo size={20} />
+                        <h3 style={{ fontSize: '1.2rem', fontWeight: 400, margin: 0 }}>Artificialyze</h3>
                     </div>
-                    <div>© {new Date().getFullYear()} ARTIFICIALYZE INC.</div>
-                    <div className="tracking-[0.2em] normal-case text-zinc-500 italic">Global Presence | HQ: India</div>
-                    <div className="tracking-[0.1em] lowercase text-emerald-500/80">inquiries@artificialyze.com</div>
+                    <p style={{ color: '#111', lineHeight: 1.6, maxWidth: '300px' }}>
+                        Specialized AI for humanity. Building the infrastructure for a smarter future.
+                    </p>
                 </div>
-                <div className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4 max-w-2xl">
-                    <Link to="/" className="hover:text-emerald-500 transition-colors">Home</Link>
-                    <Link to="/workflow" className="hover:text-emerald-500 transition-colors">Workflow</Link>
-                    <Link to="/case-studies" className="hover:text-emerald-500 transition-colors">Case Studies</Link>
-                    <Link to="/blog" className="hover:text-emerald-500 transition-colors">Intelligence</Link>
-                    <Link to="/professional-services" className="hover:text-emerald-500 transition-colors">Professional Services</Link>
-                    <Link to="/enterprise-technology" className="hover:text-emerald-500 transition-colors">Tech</Link>
-                    <Link to="/industrial" className="hover:text-emerald-500 transition-colors">Industrial</Link>
-                    <Link to="/financial-operations" className="hover:text-emerald-500 transition-colors">Financial</Link>
-                    <Link to="/consultation" className="hover:text-emerald-500 transition-colors font-bold text-zinc-400">Consultation</Link>
+
+                <div>
+                    <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '2rem', color: '#111' }}>Connect</h4>
+                    <p style={{ marginBottom: '1rem' }}><a href="mailto:inquiries@artificialyze.com">inquiries@artificialyze.com</a></p>
+                    <p style={{ color: '#000' }}>Kolkata, India</p>
+                </div>
+
+                <div>
+                    <h4 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '2rem', color: '#111' }}>Philosophy</h4>
+                    <p style={{ color: '#000' }}>Vertical Excellence</p>
+                    <p style={{ color: '#000' }}>Agentic Framework</p>
+                </div>
+
+                <div style={{ textAlign: 'right' }}>
+                    <div style={{ fontSize: '0.8rem', color: '#333', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                        &copy; {new Date().getFullYear()} Artificialyze. <br />
+                        All rights reserved.
+                    </div>
                 </div>
             </div>
         </footer>
