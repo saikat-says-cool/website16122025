@@ -1,13 +1,5 @@
-<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100" height="100" rx="20" fill="#0a0a0a"/>
-    <path 
-        d="M50 15L20 80H35L50 45L65 80H80L50 15Z" 
-        stroke="#10b981" 
-        strokeWidth="6" 
-        strokeLinejoin="round"
-    />
-    <path 
-        d="M55 35L40 55H50L45 75L65 50H55L60 35H55Z" 
-        fill="#10b981"
-    />
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" fill="white"/>
+  <path d="M16 4L26 26H6L16 4Z" stroke="black" stroke-width="1.5" stroke-linejoin="round"/>
+  <rect x="14" y="16" width="4" height="1" fill="black"/>
 </svg>
