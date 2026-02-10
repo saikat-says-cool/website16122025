@@ -70,7 +70,7 @@ const DeepEx = () => {
                                 { title: 'Mandate', desc: 'The relentless minimization of error rates via continuous, multi-layered adversarial testing.' },
                                 { title: 'Objective', desc: 'Transforming the inherently probabilistic nature of LLMs into a deterministic utility.' },
                                 { title: 'Mechanism', desc: 'Alpha Reasoning occurring at the inference level with verified path collapse.' },
-                                { title: 'Status', desc: 'Operational // Version 0.9.1 Active for specialized vertical deployment.' }
+                                { title: 'Status', desc: 'In active development for specialized vertical deployment.' }
                             ].map((item, i) => (
                                 <div key={i} style={{
                                     backgroundColor: '#fff',
@@ -108,9 +108,9 @@ const DeepEx = () => {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
                                 {[
                                     { label: 'Latency Profile', value: 'Optimized for Execution' },
-                                    { label: 'Precision Rating', value: 'Vertical Level 9' },
+                                    { label: 'Precision Goal', value: 'Domain-Leading Accuracy' },
                                     { label: 'Control Mechanism', value: 'Adversarial Chains' },
-                                    { label: 'Data Sovereignty', value: 'Encrypted Vertical' }
+                                    { label: 'Data Strategy', value: 'Curated Vertical Sets' }
                                 ].map((spec, i) => (
                                     <div key={i} style={{
                                         display: 'flex',
