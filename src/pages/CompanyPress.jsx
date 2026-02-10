@@ -7,6 +7,77 @@ import Footer from '../components/Footer';
    ─────────────────────────────────────────────── */
 const pressReleases = [
     {
+        id: 'thinking-orchestrator',
+        title: 'Artificialyze Announces Dual-Mode Reasoning Architecture for DeepEx',
+        date: 'February 10, 2026',
+        category: 'Engineering',
+        excerpt: 'The DeepEx Thinking Orchestrator introduces a dual-mode pipeline — Deep Mode for structured speed, Ultra-Deep Mode for maximum correctness — with automatic escalation and parallel adversarial solvers.',
+        content: () => (
+            <div style={{ fontSize: '1.1rem', lineHeight: 1.8, color: '#444' }}>
+                <p style={{ marginBottom: '2rem' }}>
+                    Artificialyze today unveiled the architecture of the DeepEx Thinking Orchestrator — a dual-mode multi-layer reasoning pipeline that represents a fundamental departure from single-pass AI generation.
+                </p>
+                <p style={{ marginBottom: '2rem' }}>
+                    The system introduces two distinct operational modes: <strong>Deep Mode</strong>, optimized for fast structured intelligence with a 1–3 second response window, and <strong>Ultra-Deep Mode</strong>, engineered for maximum correctness with a 5–20 second processing time. The system autonomously selects which mode to deploy based on real-time confidence analysis.
+                </p>
+
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 600, marginTop: '3rem', marginBottom: '1rem' }}>Deep Mode Pipeline</h3>
+                <p style={{ marginBottom: '1.5rem' }}>
+                    Deep Mode runs on LongCat Flash and processes every query through five sequential layers:
+                </p>
+                <div style={{ fontFamily: 'sans-serif', fontSize: '0.9rem', margin: '2rem 0' }}>
+                    {[
+                        { n: '0', t: 'Input Normalization', d: 'Creates user_query, timestamp, and session_id.' },
+                        { n: '1', t: 'Problem Decomposition', d: 'Produces problem_map with known facts, intent, constraints, unknowns.' },
+                        { n: '2', t: 'Primary Solver', d: 'Generates reasoning chain and draft answer.' },
+                        { n: '3', t: 'Fast Critic', d: 'Identifies logical gaps, weak assumptions, missing angles.' },
+                        { n: '4', t: 'Refiner', d: 'Improves solution using critic feedback.' },
+                        { n: '5', t: 'Confidence Estimator', d: 'Rates confidence 0–100 and lists key assumptions.' }
+                    ].map(item => (
+                        <div key={item.n} style={{ padding: '0.5rem 0', borderBottom: '1px solid #f0f0f0', display: 'flex', gap: '1rem' }}>
+                            <span style={{ color: '#ccc', fontWeight: 600, minWidth: '30px' }}>L{item.n}</span>
+                            <div><strong>{item.t}</strong> — {item.d}</div>
+                        </div>
+                    ))}
+                </div>
+
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 600, marginTop: '3rem', marginBottom: '1rem' }}>Automatic Escalation</h3>
+                <p style={{ marginBottom: '2rem' }}>
+                    A Decision Gate evaluates the Deep Mode output against three criteria: confidence score below 70, presence of missing analytical angles, and detection of internal contradictions. If any condition triggers, the system automatically escalates to Ultra-Deep Mode without user intervention.
+                </p>
+
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 600, marginTop: '3rem', marginBottom: '1rem' }}>Ultra-Deep Mode: Parallel Adversarial Architecture</h3>
+                <p style={{ marginBottom: '1.5rem' }}>
+                    Ultra-Deep Mode resets context and runs on LongCat Flash Thinking. Its core innovation is the deployment of three parallel solvers:
+                </p>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1px', background: '#eee', margin: '2rem 0', fontFamily: 'sans-serif' }}>
+                    {[
+                        { t: 'Solver A', s: 'Standard Reasoner', d: 'Normal solution path' },
+                        { t: 'Solver B', s: 'Pessimist', d: 'Edge cases & failure modes' },
+                        { t: 'Solver C', s: 'Creative', d: 'Unconventional approaches' }
+                    ].map((c, i) => (
+                        <div key={i} style={{ background: '#fff', padding: '1.5rem', textAlign: 'center' }}>
+                            <div style={{ fontSize: '0.65rem', color: '#c00', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>{c.t}</div>
+                            <strong style={{ fontSize: '0.95rem' }}>{c.s}</strong><br />
+                            <span style={{ color: '#888', fontSize: '0.8rem' }}>{c.d}</span>
+                        </div>
+                    ))}
+                </div>
+                <p style={{ marginBottom: '2rem' }}>
+                    Solutions from all three solvers are then processed through a Skeptic Agent (attacks contradictions), a Verifier Agent (step-by-step logical validation), a Synthesizer (merges best elements), and a Meta-Critic (final completeness check). The Meta-Critic may loop back to the Synthesizer exactly once to address any remaining gaps.
+                </p>
+
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 600, marginTop: '3rem', marginBottom: '1rem' }}>Industry Implications</h3>
+                <p style={{ marginBottom: '2rem' }}>
+                    The architecture achieves research-grade reasoning through orchestration rather than model training. By externalizing the cognitive process into explicit layers — decomposition, adversarial critique, verification, synthesis, and escalation — DeepEx operates entirely outside the limitations of single-pass generation.
+                </p>
+                <p style={{ marginBottom: '2rem' }}>
+                    Every response is packaged with a confidence score, explicit assumptions, and uncertainty notes — providing full transparency into the system's reasoning.
+                </p>
+            </div>
+        )
+    },
+    {
         id: 'taxonomy-release',
         title: 'Artificialyze Unveils 14-Dimensional Reasoning Taxonomy',
         date: 'February 10, 2026',
@@ -329,18 +400,37 @@ const CompanyPress = () => {
                         </div>
                     </div>
 
-                    {/* Row 3: Full-width horizontal */}
-                    <div onClick={() => openRelease(pressReleases[3])} style={{ ...cardBase, padding: 'clamp(2.5rem, 4vw, 4rem)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap' }}
-                        onMouseEnter={onEnter} onMouseLeave={onLeave}
-                    >
-                        <div style={{ flex: 1, minWidth: '250px' }}>
-                            <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#bbb' }}>
-                                {pressReleases[3].date} — {pressReleases[3].category}
-                            </span>
-                            <h3 style={{ fontSize: '1.4rem', fontWeight: 400, lineHeight: 1.2, marginTop: '1rem', marginBottom: '0.5rem' }}>{pressReleases[3].title}</h3>
-                            <p style={{ fontSize: '0.95rem', color: '#888', lineHeight: 1.5, margin: 0 }}>{pressReleases[3].excerpt}</p>
+                    {/* Row 3: Two equal cards */}
+                    <div className="mobile-grid-1" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                        <div onClick={() => openRelease(pressReleases[3])} style={{ ...cardBase, padding: 'clamp(2.5rem, 4vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '280px' }}
+                            onMouseEnter={onEnter} onMouseLeave={onLeave}
+                        >
+                            <div>
+                                <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999' }}>{pressReleases[3].date}</span>
+                                <div style={{ width: '30px', height: '2px', background: '#000', margin: '1.5rem 0' }}></div>
+                                <h3 style={{ fontSize: '1.35rem', fontWeight: 400, lineHeight: 1.2, marginBottom: '1rem' }}>{pressReleases[3].title}</h3>
+                                <p style={{ fontSize: '0.9rem', color: '#777', lineHeight: 1.5 }}>{pressReleases[3].excerpt}</p>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
+                                <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', padding: '0.3rem 0.8rem', border: '1px solid #ddd', letterSpacing: '0.1em', color: '#888' }}>{pressReleases[3].category}</span>
+                                <span style={{ fontSize: '0.75rem', color: '#bbb' }}>→</span>
+                            </div>
                         </div>
-                        <span style={{ fontSize: '2rem', color: '#ddd', fontWeight: 200 }}>→</span>
+
+                        <div onClick={() => openRelease(pressReleases[4])} style={{ ...cardBase, padding: 'clamp(2.5rem, 4vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '280px' }}
+                            onMouseEnter={onEnter} onMouseLeave={onLeave}
+                        >
+                            <div>
+                                <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999' }}>{pressReleases[4].date}</span>
+                                <div style={{ width: '30px', height: '2px', background: '#000', margin: '1.5rem 0' }}></div>
+                                <h3 style={{ fontSize: '1.35rem', fontWeight: 400, lineHeight: 1.2, marginBottom: '1rem' }}>{pressReleases[4].title}</h3>
+                                <p style={{ fontSize: '0.9rem', color: '#777', lineHeight: 1.5 }}>{pressReleases[4].excerpt}</p>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
+                                <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', padding: '0.3rem 0.8rem', border: '1px solid #ddd', letterSpacing: '0.1em', color: '#888' }}>{pressReleases[4].category}</span>
+                                <span style={{ fontSize: '0.75rem', color: '#bbb' }}>→</span>
+                            </div>
+                        </div>
                     </div>
 
                 </section>

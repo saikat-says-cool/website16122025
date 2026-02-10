@@ -85,7 +85,123 @@ export const AlphaReasoningFlow = () => (
     </div>
 );
 
-// 03. Agentic Symbiosis Loop (Identity)
+// 03. DeepEx Pipeline Flow (DeepEx Architecture)
+export const DeepExPipelineFlow = () => (
+    <div style={{ width: '100%', padding: '3rem 1rem', position: 'relative' }}>
+        {/* Deep Mode */}
+        <div style={{ marginBottom: '4rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+                <div style={{ width: '10px', height: '10px', background: '#000' }}></div>
+                <span style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#000', fontWeight: 600 }}>Deep Mode</span>
+                <span style={{ fontSize: '0.6rem', color: '#999', letterSpacing: '0.1em' }}>— 1–3s · LongCat Flash</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0', flexWrap: 'wrap' }}>
+                {[
+                    { label: 'Decompose', sub: 'Layer 1' },
+                    { label: 'Solve', sub: 'Layer 2' },
+                    { label: 'Critique', sub: 'Layer 3' },
+                    { label: 'Refine', sub: 'Layer 4' },
+                    { label: 'Confidence', sub: 'Layer 5' }
+                ].map((step, i) => (
+                    <React.Fragment key={i}>
+                        <div style={{
+                            border: '1px solid #ddd', padding: '1rem 1.2rem', textAlign: 'center',
+                            background: '#fff', minWidth: '90px', position: 'relative'
+                        }}>
+                            <div style={{ fontSize: '0.55rem', color: '#bbb', letterSpacing: '0.15em', marginBottom: '0.3rem', textTransform: 'uppercase' }}>{step.sub}</div>
+                            <div style={{ fontSize: '0.75rem', fontWeight: 500, color: '#000', letterSpacing: '0.05em' }}>{step.label}</div>
+                        </div>
+                        {i < 4 && <div style={{ width: '20px', height: '1px', background: '#ccc', flexShrink: 0 }}></div>}
+                    </React.Fragment>
+                ))}
+            </div>
+            <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <div style={{ display: 'inline-block', border: '1px solid #000', padding: '0.5rem 1.5rem', background: '#000', color: '#fff' }}>
+                    <span style={{ fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Decision Gate</span>
+                </div>
+                <div style={{ fontSize: '0.6rem', color: '#888', marginTop: '0.5rem', lineHeight: 1.5 }}>
+                    Confidence &lt; 70 · Missing angles · Contradictions → Escalate
+                </div>
+            </div>
+        </div>
+
+        {/* Divider */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', margin: '0 0 3rem 0' }}>
+            <div style={{ flex: 1, height: '1px', background: '#eee' }}></div>
+            <span style={{ fontSize: '0.6rem', color: '#bbb', letterSpacing: '0.2em', textTransform: 'uppercase', whiteSpace: 'nowrap' }}>Auto-Escalation</span>
+            <div style={{ flex: 1, height: '1px', background: '#eee' }}></div>
+        </div>
+
+        {/* Ultra-Deep Mode */}
+        <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+                <div style={{ width: '10px', height: '10px', background: '#c00' }}></div>
+                <span style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#000', fontWeight: 600 }}>Ultra-Deep Mode</span>
+                <span style={{ fontSize: '0.6rem', color: '#999', letterSpacing: '0.1em' }}>— 5–20s · LongCat Flash Thinking</span>
+            </div>
+
+            {/* Row 1: Decompose */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.5rem' }}>
+                <div style={{ border: '1px solid #ddd', padding: '0.8rem 1.5rem', textAlign: 'center', background: '#fff' }}>
+                    <div style={{ fontSize: '0.55rem', color: '#bbb', letterSpacing: '0.15em', marginBottom: '0.2rem' }}>LAYER 1</div>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 500 }}>Deep Decompose</div>
+                </div>
+            </div>
+
+            {/* Connector down to fan-out */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.5rem' }}>
+                <div style={{ width: '1px', height: '18px', background: '#ccc' }}></div>
+            </div>
+
+            {/* Row 2: 3 Parallel Solvers */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
+                {[
+                    { label: 'Standard Reasoner', id: 'A' },
+                    { label: 'Pessimist / Failure', id: 'B' },
+                    { label: 'Creative / Alt', id: 'C' }
+                ].map(s => (
+                    <div key={s.id} style={{
+                        border: '1px solid #ddd', padding: '0.8rem 1rem', textAlign: 'center',
+                        background: '#fff', minWidth: '120px'
+                    }}>
+                        <div style={{ fontSize: '0.55rem', color: '#bbb', letterSpacing: '0.1em', marginBottom: '0.2rem' }}>SOLVER {s.id}</div>
+                        <div style={{ fontSize: '0.7rem', fontWeight: 500, color: '#000' }}>{s.label}</div>
+                    </div>
+                ))}
+            </div>
+            <div style={{ textAlign: 'center', fontSize: '0.55rem', color: '#bbb', letterSpacing: '0.15em', marginBottom: '0.5rem' }}>PARALLEL EXECUTION</div>
+
+            {/* Connector down */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '0.5rem' }}>
+                <div style={{ width: '1px', height: '18px', background: '#ccc' }}></div>
+            </div>
+
+            {/* Row 3: Skeptic → Verifier → Synthesizer → Meta-Critic → Confidence */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0', flexWrap: 'wrap' }}>
+                {[
+                    { label: 'Skeptic', sub: 'Layer 3' },
+                    { label: 'Verifier', sub: 'Layer 4' },
+                    { label: 'Synthesizer', sub: 'Layer 5' },
+                    { label: 'Meta-Critic', sub: 'Layer 6' },
+                    { label: 'Confidence', sub: 'Layer 7' }
+                ].map((step, i) => (
+                    <React.Fragment key={i}>
+                        <div style={{
+                            border: '1px solid #ddd', padding: '0.8rem 0.9rem', textAlign: 'center',
+                            background: '#fff', minWidth: '80px'
+                        }}>
+                            <div style={{ fontSize: '0.5rem', color: '#bbb', letterSpacing: '0.1em', marginBottom: '0.2rem', textTransform: 'uppercase' }}>{step.sub}</div>
+                            <div style={{ fontSize: '0.68rem', fontWeight: 500, color: '#000' }}>{step.label}</div>
+                        </div>
+                        {i < 4 && <div style={{ width: '14px', height: '1px', background: '#ccc', flexShrink: 0 }}></div>}
+                    </React.Fragment>
+                ))}
+            </div>
+        </div>
+    </div>
+);
+
+// 04. Agentic Symbiosis Loop (Identity)
 export const AgenticSymbiosis = () => (
     <div style={{ width: '100%', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
         <svg width="240" height="240" viewBox="0 0 240 240">

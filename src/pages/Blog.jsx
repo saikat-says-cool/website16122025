@@ -7,6 +7,91 @@ import Footer from '../components/Footer';
    ─────────────────────────────────────────────── */
 const blogPosts = [
     {
+        id: 'thinking-orchestrator',
+        title: 'The Thinking Orchestrator: How DeepEx Reasons in Two Modes',
+        date: 'February 10, 2026',
+        category: 'Architecture',
+        excerpt: 'We built a dual-mode reasoning pipeline that decomposes, challenges, verifies, and assembles every answer — and automatically escalates when depth is needed.',
+        content: () => (
+            <div style={{ fontSize: '1.15rem', lineHeight: 1.85, color: '#333', fontFamily: 'Georgia, serif' }}>
+                <p style={{ marginBottom: '2rem' }}>
+                    Most AI systems generate answers in a single pass. The prompt goes in, tokens come out, and the system has no mechanism to question, verify, or improve its own reasoning before you see the result. This is the fundamental architectural weakness we set out to solve with DeepEx.
+                </p>
+
+                <div style={{ background: '#f9f9f9', borderLeft: '4px solid #000', padding: '2rem', margin: '3rem 0', fontFamily: 'sans-serif', fontSize: '1rem' }}>
+                    <strong>TL;DR:</strong> DeepEx uses a dual-mode "Thinking Orchestrator" — Deep Mode for fast structured reasoning (1–3s), and Ultra-Deep Mode for maximum correctness (5–20s) with 3 parallel solvers and adversarial verification. The system automatically escalates when it detects its own uncertainty.
+                </div>
+
+                <h3 style={{ fontFamily: 'sans-serif', fontSize: '1.5rem', marginTop: '3rem', marginBottom: '1.5rem', fontWeight: 600 }}>The Problem with Single-Pass Generation</h3>
+                <p style={{ marginBottom: '2rem' }}>
+                    When a standard LLM receives a query, it begins generating tokens immediately. There is no decomposition phase, no internal critique, no verification step. The model's "confidence" isn't a measurement — it's a feeling baked into the probability of the next token. For casual queries, this works fine. For anything that matters, it's a structural failure.
+                </p>
+
+                <h3 style={{ fontFamily: 'sans-serif', fontSize: '1.5rem', marginTop: '3rem', marginBottom: '1.5rem', fontWeight: 600 }}>Deep Mode — Structured Speed</h3>
+                <p style={{ marginBottom: '1.5rem' }}>
+                    Deep Mode is the default. It runs in 1–3 seconds using LongCat Flash and follows a five-layer sequential pipeline:
+                </p>
+                <div style={{ fontFamily: 'sans-serif', fontSize: '0.95rem', margin: '2rem 0' }}>
+                    {[
+                        { layer: 'Layer 0', title: 'Input Normalization', desc: 'Clean slate. Creates user_query, timestamp, and session_id.' },
+                        { layer: 'Layer 1', title: 'Problem Decomposition', desc: 'Produces a problem_map — known facts, user intent, constraints, unknowns, required output format.' },
+                        { layer: 'Layer 2', title: 'Primary Solver', desc: 'The first "rope strand." Generates a draft answer using the decomposition.' },
+                        { layer: 'Layer 3', title: 'Fast Critic', desc: 'The internal skeptic. Identifies logical gaps, weak assumptions, and missing angles.' },
+                        { layer: 'Layer 4', title: 'Refiner', desc: 'Improves the solution using the critic\'s feedback.' },
+                        { layer: 'Layer 5', title: 'Confidence Estimator', desc: 'Rates confidence 0–100 and lists key assumptions.' }
+                    ].map((item, i) => (
+                        <div key={i} style={{ display: 'flex', gap: '1.5rem', padding: '0.8rem 0', borderBottom: '1px solid #f0f0f0', alignItems: 'baseline' }}>
+                            <span style={{ color: '#ccc', fontWeight: 600, minWidth: '60px', fontSize: '0.8rem' }}>{item.layer}</span>
+                            <div>
+                                <strong style={{ color: '#000' }}>{item.title}</strong>
+                                <span style={{ color: '#888', marginLeft: '0.5rem' }}>— {item.desc}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <h3 style={{ fontFamily: 'sans-serif', fontSize: '1.5rem', marginTop: '3rem', marginBottom: '1.5rem', fontWeight: 600 }}>The Decision Gate</h3>
+                <p style={{ marginBottom: '2rem' }}>
+                    After Deep Mode completes, the system evaluates itself. If <em>any</em> of the following conditions are true — confidence below 70, missing angles detected, contradictions found — the system automatically escalates to Ultra-Deep Mode. You don't rely on the user to know when depth is needed. The architecture decides.
+                </p>
+
+                <h3 style={{ fontFamily: 'sans-serif', fontSize: '1.5rem', marginTop: '3rem', marginBottom: '1.5rem', fontWeight: 600 }}>Ultra-Deep Mode — Maximum Correctness</h3>
+                <p style={{ marginBottom: '1.5rem' }}>
+                    Ultra-Deep Mode is the heavy artillery. It runs in 5–20 seconds using LongCat Flash Thinking and introduces the core innovation: three parallel solvers.
+                </p>
+                <div style={{ fontFamily: 'sans-serif', fontSize: '0.95rem', margin: '2rem 0' }}>
+                    {[
+                        { id: 'Solver A', title: 'Standard Reasoner', desc: 'Solves normally using the deep problem map.' },
+                        { id: 'Solver B', title: 'Pessimist / Failure Mode Thinker', desc: 'Assumes edge cases, failures, worst-case scenarios.' },
+                        { id: 'Solver C', title: 'Creative / Alternative Thinker', desc: 'Uses unconventional, non-obvious approaches.' }
+                    ].map((item, i) => (
+                        <div key={i} style={{ display: 'flex', gap: '1.5rem', padding: '0.8rem 0', borderBottom: '1px solid #f0f0f0', alignItems: 'baseline' }}>
+                            <span style={{ color: '#c00', fontWeight: 600, minWidth: '70px', fontSize: '0.8rem' }}>{item.id}</span>
+                            <div>
+                                <strong style={{ color: '#000' }}>{item.title}</strong>
+                                <span style={{ color: '#888', marginLeft: '0.5rem' }}>— {item.desc}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <p style={{ marginBottom: '2rem' }}>
+                    These run <em>in parallel</em>. This is the "twenty thin strings" — three independent reasoning paths that create redundancy and diversity of thought. After the solvers finish, the Skeptic Agent attacks all solutions, the Verifier Agent checks logical validity step-by-step, the Synthesizer merges the best elements, and the Meta-Critic does one final check: does this fully answer the user?
+                </p>
+
+                <h3 style={{ fontFamily: 'sans-serif', fontSize: '1.5rem', marginTop: '3rem', marginBottom: '1.5rem', fontWeight: 600 }}>Why Orchestration Beats Training</h3>
+                <p style={{ marginBottom: '2rem' }}>
+                    We didn't achieve this through model training. We achieved it through <em>orchestration</em>. The model is the muscle; the Thinking Orchestrator is the brain giving it instructions. Explicit branching, adversarial thinking, verification, synthesis, and escalation — this is externalized cognition. And it's what makes DeepEx fundamentally different from systems that live inside single-pass generation.
+                </p>
+
+                <div style={{ background: '#f0f0f0', padding: '2.5rem', margin: '3rem 0', fontFamily: 'sans-serif', textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.3rem', color: '#000', fontStyle: 'italic', margin: 0, lineHeight: 1.6 }}>
+                        "When an AI can question itself before answering, it ceases to be a prediction engine and becomes a reasoning system."
+                    </p>
+                </div>
+            </div>
+        )
+    },
+    {
         id: 'taxonomy',
         title: 'Beyond Hallucination: A New Taxonomy of Thought',
         date: 'February 10, 2026',
@@ -327,18 +412,37 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    {/* Row 3: Full-width horizontal */}
-                    <div onClick={() => openPost(blogPosts[3])} style={{ ...cardBase, padding: 'clamp(2.5rem, 4vw, 4rem)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap' }}
-                        onMouseEnter={onEnter} onMouseLeave={onLeave}
-                    >
-                        <div style={{ flex: 1, minWidth: '250px' }}>
-                            <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#bbb' }}>
-                                {blogPosts[3].date} — {blogPosts[3].category}
-                            </span>
-                            <h3 style={{ fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.2, marginTop: '1rem', marginBottom: '0.5rem' }}>{blogPosts[3].title}</h3>
-                            <p style={{ fontSize: '0.95rem', color: '#888', lineHeight: 1.5, margin: 0 }}>{blogPosts[3].excerpt}</p>
+                    {/* Row 3: Two equal cards */}
+                    <div className="mobile-grid-1" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                        <div onClick={() => openPost(blogPosts[3])} style={{ ...cardBase, padding: 'clamp(2.5rem, 4vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '280px' }}
+                            onMouseEnter={onEnter} onMouseLeave={onLeave}
+                        >
+                            <div>
+                                <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999' }}>{blogPosts[3].date}</span>
+                                <div style={{ width: '30px', height: '2px', background: '#000', margin: '1.5rem 0' }}></div>
+                                <h3 style={{ fontSize: '1.4rem', fontWeight: 400, lineHeight: 1.2, marginBottom: '1rem' }}>{blogPosts[3].title}</h3>
+                                <p style={{ fontSize: '0.9rem', color: '#777', lineHeight: 1.5 }}>{blogPosts[3].excerpt}</p>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
+                                <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', padding: '0.3rem 0.8rem', border: '1px solid #ddd', letterSpacing: '0.1em', color: '#888' }}>{blogPosts[3].category}</span>
+                                <span style={{ fontSize: '0.75rem', color: '#bbb' }}>→</span>
+                            </div>
                         </div>
-                        <span style={{ fontSize: '2rem', color: '#ddd', fontWeight: 200 }}>→</span>
+
+                        <div onClick={() => openPost(blogPosts[4])} style={{ ...cardBase, padding: 'clamp(2.5rem, 4vw, 4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '280px' }}
+                            onMouseEnter={onEnter} onMouseLeave={onLeave}
+                        >
+                            <div>
+                                <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999' }}>{blogPosts[4].date}</span>
+                                <div style={{ width: '30px', height: '2px', background: '#000', margin: '1.5rem 0' }}></div>
+                                <h3 style={{ fontSize: '1.4rem', fontWeight: 400, lineHeight: 1.2, marginBottom: '1rem' }}>{blogPosts[4].title}</h3>
+                                <p style={{ fontSize: '0.9rem', color: '#777', lineHeight: 1.5 }}>{blogPosts[4].excerpt}</p>
+                            </div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
+                                <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', padding: '0.3rem 0.8rem', border: '1px solid #ddd', letterSpacing: '0.1em', color: '#888' }}>{blogPosts[4].category}</span>
+                                <span style={{ fontSize: '0.75rem', color: '#bbb' }}>→</span>
+                            </div>
+                        </div>
                     </div>
 
                 </section>

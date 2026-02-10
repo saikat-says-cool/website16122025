@@ -8,6 +8,114 @@ import { AlphaReasoningFlow } from '../components/Infographics';
    ─────────────────────────────────────────────── */
 const researchFindings = [
     {
+        id: 'thinking-orchestrator',
+        title: 'DeepEx Thinking Orchestrator: Multi-Layer Reasoning Pipeline',
+        date: 'February 10, 2026',
+        tag: 'Memorandum 005',
+        excerpt: 'The complete architecture of the DeepEx Thinking Orchestrator — a dual-mode multi-layer reasoning pipeline with explicit branching, adversarial verification, and automatic escalation.',
+        content: () => (
+            <div style={{ fontFamily: 'sans-serif', color: '#333' }}>
+                <p style={{ fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
+                    The Thinking Orchestrator is the central inference architecture of DeepEx. Every user query passes through a Mode Selector that routes to either Deep Mode (structured speed) or Ultra-Deep Mode (maximum correctness). The system automatically escalates when its own confidence analysis detects uncertainty.
+                </p>
+
+                <h4 style={{ fontSize: '0.7rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#888', marginTop: '3rem', marginBottom: '1.5rem' }}>Top-Level System View</h4>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0', marginBottom: '3rem' }}>
+                    {['User Input', 'Mode Selector', 'Thinking Orchestrator', 'Multi-Layer Pipeline', 'Confidence + Assumptions', 'Final Response'].map((s, i) => (
+                        <React.Fragment key={i}>
+                            <div style={{ border: '1px solid #eee', padding: '0.5rem 0.8rem', fontSize: '0.65rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: i === 2 ? '#000' : '#888', fontWeight: i === 2 ? 600 : 400, background: i === 2 ? '#f5f5f5' : '#fff' }}>{s}</div>
+                            {i < 5 && <div style={{ width: '12px', height: '1px', background: '#ddd', alignSelf: 'center' }}></div>}
+                        </React.Fragment>
+                    ))}
+                </div>
+
+                <h4 style={{ fontSize: '0.7rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#888', marginTop: '3rem', marginBottom: '1.5rem' }}>Deep Mode — 1–3s · LongCat Flash</h4>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+                    {[
+                        { id: 'L0', title: 'Input Normalization', desc: 'Creates user_query, timestamp, session_id. No thinking yet — clean slate.', artifact: 'user_query, session_id' },
+                        { id: 'L1', title: 'Problem Decomposition', desc: 'Decomposes into known facts, user intent, constraints, unknowns, required output format.', artifact: 'problem_map {}' },
+                        { id: 'L2', title: 'Primary Solver', desc: 'First rope strand. Produces solution using the decomposition.', artifact: 'primary_solution { reasoning, draft_answer }' },
+                        { id: 'L3', title: 'Fast Critic', desc: 'Internal skeptic. Identifies logical gaps, weak assumptions, missing considerations.', artifact: 'critic_report { issues[], confidence_flags[], missing_angles[] }' },
+                        { id: 'L4', title: 'Refiner', desc: 'Improves solution using critic feedback.', artifact: 'refined_answer' },
+                        { id: 'L5', title: 'Confidence Estimator', desc: 'Rates confidence 0–100 and lists key assumptions.', artifact: 'confidence_score, assumptions[]' }
+                    ].map(item => (
+                        <div key={item.id} style={{ border: '1px solid #eee', padding: '1.5rem', background: '#fff' }}>
+                            <div style={{ color: '#bbb', fontSize: '0.65rem', marginBottom: '0.5rem', letterSpacing: '0.15em' }}>{item.id}</div>
+                            <h4 style={{ color: '#000', fontSize: '0.95rem', marginBottom: '0.5rem', fontWeight: 500 }}>{item.title}</h4>
+                            <p style={{ color: '#666', fontSize: '0.8rem', lineHeight: 1.6, marginBottom: '0.75rem' }}>{item.desc}</p>
+                            <div style={{ fontSize: '0.65rem', background: '#f9f9f9', padding: '0.3rem 0.5rem', color: '#999', fontFamily: 'monospace' }}>{item.artifact}</div>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={{ border: '2px solid #000', padding: '1.5rem', marginBottom: '3rem', textAlign: 'center' }}>
+                    <div style={{ fontSize: '0.7rem', letterSpacing: '0.25em', textTransform: 'uppercase', fontWeight: 600, marginBottom: '0.5rem' }}>Decision Gate — Automatic Escalation</div>
+                    <p style={{ fontSize: '0.8rem', color: '#666', margin: 0 }}>IF confidence &lt; 70 OR missing_angles &gt; 0 OR contradictions detected → Route to Ultra-Deep</p>
+                </div>
+
+                <h4 style={{ fontSize: '0.7rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#c00', marginTop: '3rem', marginBottom: '1.5rem' }}>Ultra-Deep Mode — 5–20s · LongCat Flash Thinking</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: '#666', marginBottom: '2rem' }}>
+                    Context reset. Only user_query and problem_map carry forward. Everything else is discarded for fresh reasoning with the Thinking model.
+                </p>
+
+                <div style={{ border: '1px solid #eee', padding: '1.5rem', background: '#fff', marginBottom: '1rem' }}>
+                    <div style={{ color: '#bbb', fontSize: '0.65rem', marginBottom: '0.5rem', letterSpacing: '0.15em' }}>LAYER 1</div>
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: 500, marginBottom: '0.5rem' }}>Deep Decomposition</h4>
+                    <p style={{ fontSize: '0.8rem', color: '#666', margin: 0 }}>More granular decomposition using Thinking model. Produces deep_problem_map.</p>
+                </div>
+
+                <div style={{ marginBottom: '1rem' }}>
+                    <div style={{ fontSize: '0.65rem', color: '#c00', letterSpacing: '0.15em', marginBottom: '0.75rem', fontWeight: 600 }}>LAYER 2 — PARALLEL SOLVERS (Core Innovation)</div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
+                        {[
+                            { id: 'A', title: 'Standard Reasoner', desc: 'Solve normally using deep_problem_map.', artifact: 'solution_A' },
+                            { id: 'B', title: 'Pessimist / Failure Mode', desc: 'Solve assuming edge cases, failures, worst-case.', artifact: 'solution_B' },
+                            { id: 'C', title: 'Creative / Alternative', desc: 'Solve using unconventional approaches.', artifact: 'solution_C' }
+                        ].map(s => (
+                            <div key={s.id} style={{ border: '1px solid #eee', padding: '1.2rem', background: '#fff' }}>
+                                <div style={{ color: '#c00', fontSize: '0.65rem', marginBottom: '0.5rem', letterSpacing: '0.1em', fontWeight: 600 }}>SOLVER {s.id}</div>
+                                <h4 style={{ fontSize: '0.85rem', fontWeight: 500, marginBottom: '0.4rem' }}>{s.title}</h4>
+                                <p style={{ fontSize: '0.75rem', color: '#666', lineHeight: 1.5, marginBottom: '0.5rem' }}>{s.desc}</p>
+                                <div style={{ fontSize: '0.6rem', background: '#f9f9f9', padding: '0.2rem 0.4rem', color: '#999', fontFamily: 'monospace' }}>{s.artifact}</div>
+                            </div>
+                        ))}
+                    </div>
+                    <div style={{ textAlign: 'center', fontSize: '0.6rem', color: '#bbb', letterSpacing: '0.15em', marginTop: '0.5rem' }}>RUNS IN PARALLEL</div>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                    {[
+                        { id: 'L3', title: 'Skeptic Agent', desc: 'Attack all solutions. Find contradictions, weak logic, conflicts.', artifact: 'skeptic_report { contradictions[], weak_points[], unresolved_questions[] }' },
+                        { id: 'L4', title: 'Verifier Agent', desc: 'Step-by-step verification of logical flow, assumptions, consistency.', artifact: 'verification_report' },
+                        { id: 'L5', title: 'Synthesizer', desc: 'Merge best elements from A, B, C into single coherent answer.', artifact: 'final_solution' },
+                        { id: 'L6', title: 'Meta-Critic', desc: 'Does this fully answer the user? If gaps → loop back once.', artifact: 'meta_gaps[]' }
+                    ].map(item => (
+                        <div key={item.id} style={{ border: '1px solid #eee', padding: '1.2rem', background: '#fff' }}>
+                            <div style={{ color: '#bbb', fontSize: '0.65rem', marginBottom: '0.5rem', letterSpacing: '0.1em' }}>{item.id}</div>
+                            <h4 style={{ fontSize: '0.85rem', fontWeight: 500, marginBottom: '0.4rem' }}>{item.title}</h4>
+                            <p style={{ fontSize: '0.75rem', color: '#666', lineHeight: 1.5, marginBottom: '0.5rem' }}>{item.desc}</p>
+                            <div style={{ fontSize: '0.6rem', background: '#f9f9f9', padding: '0.2rem 0.4rem', color: '#999', fontFamily: 'monospace', wordBreak: 'break-all' }}>{item.artifact}</div>
+                        </div>
+                    ))}
+                </div>
+
+                <div style={{ border: '1px solid #eee', padding: '1.2rem', background: '#fff', marginBottom: '3rem' }}>
+                    <div style={{ color: '#bbb', fontSize: '0.65rem', marginBottom: '0.5rem', letterSpacing: '0.1em' }}>L7</div>
+                    <h4 style={{ fontSize: '0.85rem', fontWeight: 500, marginBottom: '0.4rem' }}>Confidence + Assumptions</h4>
+                    <p style={{ fontSize: '0.75rem', color: '#666', lineHeight: 1.5, marginBottom: '0.5rem' }}>Strict confidence scoring with uncertainty annotation.</p>
+                    <div style={{ fontSize: '0.6rem', background: '#f9f9f9', padding: '0.2rem 0.4rem', color: '#999', fontFamily: 'monospace' }}>confidence_score, assumptions[], uncertainty_notes[]</div>
+                </div>
+
+                <h4 style={{ fontSize: '0.7rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#888', marginTop: '3rem', marginBottom: '1.5rem' }}>Final Output Assembly</h4>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                    {['Answer', 'Confidence', 'Assumptions', 'Uncertainty Notes'].map((item, i) => (
+                        <div key={i} style={{ border: '1px solid #eee', padding: '0.6rem 1.2rem', fontSize: '0.75rem', fontWeight: 500, background: '#fafafa' }}>{item}</div>
+                    ))}
+                </div>
+            </div>
+        )
+    },
+    {
         id: 'taxonomy-14',
         title: 'Taxonomy of Deep Thinking: The 14-Dimensional Framework',
         date: 'February 10, 2026',
@@ -355,22 +463,37 @@ const ResearchAndDevelopment = () => {
                             </div>
                         </div>
 
-                        {/* Row 3: Full-width horizontal */}
-                        <div onClick={() => openFinding(researchFindings[3])} style={{ ...cardBase, padding: 'clamp(2rem, 4vw, 3.5rem)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '3rem', flexWrap: 'wrap' }}
-                            onMouseEnter={onEnter} onMouseLeave={onLeave}
-                        >
-                            <div style={{ flex: 1, minWidth: '250px' }}>
-                                <span style={{ fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999' }}>
-                                    {researchFindings[3].date} — {researchFindings[3].tag}
-                                </span>
-                                <h3 style={{ fontSize: '1.4rem', fontWeight: 400, lineHeight: 1.2, marginTop: '1rem', marginBottom: '0.5rem' }}>
-                                    {researchFindings[3].title}
-                                </h3>
-                                <p style={{ fontSize: '0.9rem', color: '#777', lineHeight: 1.5, margin: 0 }}>
-                                    {researchFindings[3].excerpt}
-                                </p>
+                        {/* Row 3: Two equal cards */}
+                        <div className="mobile-grid-1" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                            <div onClick={() => openFinding(researchFindings[3])} style={{ ...cardBase, padding: 'clamp(2rem, 4vw, 3.5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '280px' }}
+                                onMouseEnter={onEnter} onMouseLeave={onLeave}
+                            >
+                                <div>
+                                    <span style={{ fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999' }}>{researchFindings[3].date}</span>
+                                    <div style={{ width: '30px', height: '2px', background: '#000', margin: '1.5rem 0' }}></div>
+                                    <h3 style={{ fontSize: '1.3rem', fontWeight: 400, lineHeight: 1.2, marginBottom: '1rem' }}>{researchFindings[3].title}</h3>
+                                    <p style={{ fontSize: '0.85rem', color: '#777', lineHeight: 1.5 }}>{researchFindings[3].excerpt}</p>
+                                </div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
+                                    <span style={{ fontSize: '0.6rem', textTransform: 'uppercase', padding: '0.3rem 0.7rem', border: '1px solid #ddd', letterSpacing: '0.1em', color: '#888' }}>{researchFindings[3].tag}</span>
+                                    <span style={{ fontSize: '0.75rem', color: '#bbb' }}>→</span>
+                                </div>
                             </div>
-                            <span style={{ fontSize: '2rem', color: '#ddd', fontWeight: 200 }}>→</span>
+
+                            <div onClick={() => openFinding(researchFindings[4])} style={{ ...cardBase, padding: 'clamp(2rem, 4vw, 3.5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '280px' }}
+                                onMouseEnter={onEnter} onMouseLeave={onLeave}
+                            >
+                                <div>
+                                    <span style={{ fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#999' }}>{researchFindings[4].date}</span>
+                                    <div style={{ width: '30px', height: '2px', background: '#000', margin: '1.5rem 0' }}></div>
+                                    <h3 style={{ fontSize: '1.3rem', fontWeight: 400, lineHeight: 1.2, marginBottom: '1rem' }}>{researchFindings[4].title}</h3>
+                                    <p style={{ fontSize: '0.85rem', color: '#777', lineHeight: 1.5 }}>{researchFindings[4].excerpt}</p>
+                                </div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2rem' }}>
+                                    <span style={{ fontSize: '0.6rem', textTransform: 'uppercase', padding: '0.3rem 0.7rem', border: '1px solid #ddd', letterSpacing: '0.1em', color: '#888' }}>{researchFindings[4].tag}</span>
+                                    <span style={{ fontSize: '0.75rem', color: '#bbb' }}>→</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
