@@ -29,7 +29,11 @@ const Footer = () => {
                 <div className="mobile-text-center">
                     <h4 style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem', color: '#111' }}>Connect</h4>
                     <p style={{ marginBottom: '0.8rem', fontSize: '0.9rem' }}><a href="mailto:inquiries@artificialyze.com" className="hover-underline">inquiries@artificialyze.com</a></p>
-                    <p style={{ color: '#000', fontSize: '0.9rem' }}>Kolkata, India</p>
+                    <p style={{ marginBottom: '0.8rem', fontSize: '0.9rem', color: '#000' }}>Kolkata, India</p>
+                    <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }} className="mobile-justify-center">
+                        <a href="https://x.com/Artificialyze" target="_blank" rel="noopener noreferrer" className="hover-underline" style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Twitter</a>
+                        <a href="https://www.instagram.com/artificialyze" target="_blank" rel="noopener noreferrer" className="hover-underline" style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Instagram</a>
+                    </div>
                 </div>
 
                 <div className="mobile-text-center">

@@ -100,6 +100,10 @@ const Header = () => {
                     </ul>
                 </nav>
                 <div style={{ marginTop: 'auto' }}>
+                    <div style={{ display: 'flex', gap: '1.5rem', marginBottom: '1.5rem' }}>
+                        <a href="https://x.com/Artificialyze" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#000' }}>Twitter</a>
+                        <a href="https://www.instagram.com/artificialyze" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#000' }}>Instagram</a>
+                    </div>
                     <p style={{ fontSize: '0.8rem', color: '#999', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
                         Specialized Excellence
                     </p>
