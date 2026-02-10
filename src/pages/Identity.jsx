@@ -1,40 +1,55 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { AgenticSymbiosis } from '../components/Infographics';
 
 const Identity = () => {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: '#fff' }}>
             <Header />
-            <main style={{ flex: 1 }}>
+            <main style={{ flex: 1, position: 'relative' }}>
 
-                {/* Title Block */}
-                <section className="reveal" style={{
-                    padding: '10rem 6rem 8rem 6rem',
+                {/* Title Block with Lines and Grid */}
+                <section className="reveal tech-grid" style={{
+                    padding: '5rem 6rem 6rem 6rem',
                     borderBottom: '1px solid #f0f0f0',
                     display: 'flex',
                     alignItems: 'flex-end',
                     justifyContent: 'space-between',
-                    flexWrap: 'wrap'
+                    flexWrap: 'wrap',
+                    position: 'relative'
                 }}>
-                    <div className="mobile-text-center" style={{ flex: 1 }}>
+                    <div className="tech-line-v desktop-only" style={{ left: '60px' }}></div>
+
+                    <div className="mobile-text-center" style={{ flex: 1, position: 'relative', zIndex: 2 }}>
+                        <div className="section-tag">Core Definition</div>
                         <span style={{ display: 'block', fontSize: '0.9rem', letterSpacing: '0.4em', marginBottom: '2rem', color: '#111', textTransform: 'uppercase' }}>Manifesto I</span>
                         <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 10vw)', fontWeight: 300, lineHeight: 0.8, letterSpacing: '-0.06em', margin: 0, color: '#000' }}>
                             Identity.
                         </h1>
                     </div>
-                    <div className="desktop-only" style={{ fontSize: '15rem', lineHeight: 0.8, fontWeight: 100, color: '#f9f9f9' }}>I</div>
+                    <div className="desktop-only" style={{ fontSize: '15rem', lineHeight: 0.8, fontWeight: 100, color: '#f7f7f7', position: 'relative', zIndex: 1 }}>I</div>
                 </section>
 
-                <div className="mobile-grid-1" style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 25%) 1fr' }}>
+                <div className="mobile-grid-1" style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 25%) 1fr', position: 'relative' }}>
 
-                    {/* Sidebar */}
+                    <div className="tech-line-v desktop-only" style={{ left: '25%', background: '#f5f5f5' }}></div>
+
+                    {/* Sidebar / Tenets */}
                     <aside className="mobile-padding-tight" style={{
                         borderRight: '1px solid #f0f0f0',
                         padding: '6rem 4rem',
                         display: 'flex',
-                        flexDirection: 'column'
+                        flexDirection: 'column',
+                        position: 'relative',
+                        zIndex: 2
                     }}>
+                        <div className="corner-mark top-right" style={{ borderTop: 0, borderRight: 0, borderLeft: '1px solid #eee', borderBottom: '1px solid #eee', width: '20px', height: '20px' }}></div>
+
+                        <div style={{ marginBottom: '4rem' }}>
+                            <AgenticSymbiosis />
+                        </div>
+
                         <h3 style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.3em', marginBottom: '4rem', color: '#000' }}>Core Tenets</h3>
                         <ul style={{ listStyle: 'none', padding: 0 }}>
                             {[
@@ -44,10 +59,12 @@ const Identity = () => {
                                 { title: 'Deterministic Logic', desc: 'Truth over probability.' }
                             ].map((item, i) => (
                                 <li key={i} style={{
-                                    marginBottom: '3rem',
-                                    borderLeft: '1px solid #000',
-                                    paddingLeft: '1.5rem'
+                                    marginBottom: '3.5rem',
+                                    position: 'relative',
+                                    paddingLeft: '1.5rem',
+                                    borderLeft: '1px solid #000'
                                 }}>
+                                    <span style={{ position: 'absolute', top: 0, right: 0, fontSize: '0.6rem', color: '#ccc' }}>0{i + 1}</span>
                                     <span style={{ display: 'block', fontSize: '1rem', fontWeight: 500, marginBottom: '0.5rem' }}>{item.title}</span>
                                     <span style={{ display: 'block', fontSize: '0.85rem', color: '#666' }}>{item.desc}</span>
                                 </li>
@@ -55,62 +72,55 @@ const Identity = () => {
                         </ul>
                     </aside>
 
-                    {/* Main Content */}
-                    <article className="mobile-padding-tight" style={{ padding: '8rem 10rem', maxWidth: '1200px' }}>
-                        <div className="reveal">
-                            <h2 style={{ fontSize: '3rem', fontWeight: 300, marginBottom: '4rem', lineHeight: 1.1 }}>We define the <br /> infrastructure of intent.</h2>
-                            <p style={{ fontSize: '1.6rem', lineHeight: 1.4, marginBottom: '4rem', fontWeight: 300, color: '#111', maxWidth: '800px' }}>
-                                Artificialyze is more than a company; it is a repository of specialized intelligence. We exist to solve the "generalist problem"—the dilution of capability that occurs when AI tries to be everything to everyone.
+                    {/* Main Content Article */}
+                    <article className="mobile-padding-tight" style={{ padding: '8rem 10rem', maxWidth: '1200px', position: 'relative', zIndex: 2 }}>
+                        <div className="reveal" style={{ position: 'relative', marginBottom: '6rem' }}>
+                            <div className="corner-mark top-left"></div>
+                            <h2 style={{ fontSize: '3rem', fontWeight: 300, marginBottom: '4rem', lineHeight: 1.1, padding: '1rem 0' }}>We define the <br /> infrastructure of intent.</h2>
+                            <p style={{ fontSize: '1.6rem', lineHeight: 1.4, fontWeight: 300, color: '#111', maxWidth: '800px' }}>
+                                Artificialyze is more than a company; it is a repository of specialized intelligence. We exist to solve the "generalist problem."
                             </p>
                         </div>
 
-                        <div className="reveal" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '6rem' }}>
-                            <div style={{ borderTop: '1px solid #eee', paddingTop: '3rem' }}>
-                                <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '2rem', color: '#111' }}>The Transition</h4>
-                                <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#333', marginBottom: '2rem' }}>
-                                    We stand at a critical juncture where the initial fascination with generalized models is giving way to the necessity for precision and reliability. The era of the "stochastic parrot"—models that guess based on massive datasets—is reaching its limit for high-stakes human endeavors.
-                                </p>
-                                <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#333' }}>
-                                    Our identity is built on the transition from "approximate conversation" to "precise execution." We fundamentally reject the generalist paradigm. True power lies in constraints.
-                                </p>
-                            </div>
-
-                            <div style={{ borderTop: '1px solid #eee', paddingTop: '3rem' }}>
-                                <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '2rem', color: '#111' }}>The Specialized Paradox</h4>
-                                <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#333', marginBottom: '2rem' }}>
-                                    It is often assumed that building a specialized model is easier than building a general one. We believe the opposite is true. Specialized AI requires a deeper understanding of domain logic, a more rigorous vetting of training data, and a far more uncompromising approach to error rates.
-                                </p>
-                                <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#333' }}>
-                                    By focusing on a vertical, we are forced to confront the complexities that general models simply gloss over. We do not hide behind "vibes" or "personality"; we stand behind <span style={{ textDecoration: 'underline' }}>deterministic performance</span>.
-                                </p>
-                            </div>
-
-                            <div style={{ borderTop: '1px solid #eee', paddingTop: '3rem' }}>
-                                <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '2rem', color: '#111' }}>Architects of the Vertical</h4>
-                                <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#333', marginBottom: '2rem' }}>
-                                    We are architects, not artists. Our work is structural. We construct the cognitive engines that power industry, governance, and research. Every system we deploy is a testament to our commitment to depth and utility.
-                                </p>
-                                <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#333' }}>
-                                    Artificialyze is the home of the specialists. Our pride is not in how many users we have, but in the critical nature of the problems we solve. This is the Artificialyze distinction: a rejection of noise, and an unwavering focus on the specialized tool.
-                                </p>
-                            </div>
+                        <div className="reveal" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '8rem' }}>
+                            {[
+                                { title: 'The Transition', content: 'Our identity is built on the transition from "approximate conversation" to "precise execution." We fundamentally reject the generalist paradigm. True power lies in constraints.' },
+                                { title: 'The Specialized Paradox', content: 'Specialized AI requires a deeper understanding of domain logic and a far more uncompromising approach to error rates. We do not hide behind "vibes"; we stand behind performance.' },
+                                { title: 'Architects of the Vertical', content: 'We are architects, not artists. Our work is structural. We construct the cognitive engines that power industry, governance, and research. Depth is our distinction.' }
+                            ].map((section, idx) => (
+                                <div key={idx} style={{
+                                    border: '1px solid #f0f0f0',
+                                    padding: '4rem',
+                                    position: 'relative',
+                                    backgroundColor: '#fff'
+                                }}>
+                                    <div className="corner-label top-right">VERIFIED</div>
+                                    <div style={{ width: '30px', height: '1px', background: '#000', marginBottom: '2rem' }}></div>
+                                    <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.25em', marginBottom: '2rem', color: '#111' }}>{section.title}</h4>
+                                    <p style={{ fontSize: '1.15rem', lineHeight: 1.8, color: '#333' }}>
+                                        {section.content}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
 
-                        {/* New Content: The Engineering Ethos */}
-                        <div className="reveal" style={{ marginTop: '10rem', padding: '6rem', backgroundColor: '#fafafa', border: '1px solid #f0f0f0' }}>
+                        {/* Engineering Ethos with Geometric Grid */}
+                        <div className="reveal tech-grid" style={{ marginTop: '10rem', padding: '6rem', backgroundColor: '#fafafa', border: '1px solid #f0f0f0', position: 'relative' }}>
+                            <div className="tech-line-h" style={{ top: '0', opacity: 0.8 }}></div>
                             <h3 style={{ fontSize: '2rem', fontWeight: 300, marginBottom: '3rem' }}>The Engineering Ethos</h3>
                             <div className="mobile-grid-1" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem' }}>
                                 <div>
                                     <p style={{ fontSize: '1rem', lineHeight: 1.7, color: '#444' }}>
-                                        Performance at the edge of possibility requires a different kind of engineering. At Artificialyze, we prioritize small, highly curated datasets over massive, unvetted pools. We favor reasoning-based architectures over traditional transformers when precision is required.
+                                        Performance requirements at the edge of possibility require a different kind of engineering. We prioritize small, curated datasets over massive, unvetted pools.
                                     </p>
                                 </div>
-                                <div>
+                                <div style={{ borderLeft: '1px solid #eee', paddingLeft: '3rem' }}>
                                     <p style={{ fontSize: '1rem', lineHeight: 1.7, color: '#444' }}>
-                                        Our developers operate under the "Rule of Three": 1. Does it solve a specific vertical problem? 2. Is its reasoning verifiable? 3. Does it augment human agency rather than just mimicking it? If the answer to any is no, the project ceases.
+                                        Our developers operate under the "Rule of Three": specialized domain problem, verifiable reasoning, and augmentation of human agency.
                                     </p>
                                 </div>
                             </div>
+                            <div className="corner-mark bottom-right"></div>
                         </div>
                     </article>
                 </div>

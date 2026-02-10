@@ -33,15 +33,16 @@ const Footer = () => {
                 </div>
 
                 <div className="mobile-text-center">
-                    <h4 style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem', color: '#111' }}>Philosophy</h4>
-                    <p style={{ color: '#000', marginBottom: '0.8rem', fontSize: '0.9rem' }}>Vertical Excellence</p>
-                    <p style={{ color: '#000', fontSize: '0.9rem' }}>Agentic Framework</p>
+                    <h4 style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '1.5rem', color: '#111' }}>Exploration</h4>
+                    <p style={{ marginBottom: '0.8rem', fontSize: '0.9rem' }}><a href="/research" className="hover-underline">Research & Dev</a></p>
+                    <p style={{ marginBottom: '0.8rem', fontSize: '0.9rem' }}><a href="/press" className="hover-underline">Company Press</a></p>
+                    <p style={{ marginBottom: '0.8rem', fontSize: '0.9rem' }}><a href="/governance" className="hover-underline">Governance</a></p>
                 </div>
 
                 <div className="mobile-text-center" style={{ textAlign: 'right' }}>
                     <div style={{ fontSize: '0.75rem', color: '#333', textTransform: 'uppercase', letterSpacing: '0.1em', lineHeight: 1.6 }}>
                         &copy; {new Date().getFullYear()} Artificialyze. <br />
-                        All rights reserved.
+                        Design & Logic authorized.
                     </div>
                 </div>
             </div>

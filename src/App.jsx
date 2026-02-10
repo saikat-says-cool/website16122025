@@ -6,6 +6,8 @@ import Mission from './pages/Mission'
 import DeepEx from './pages/DeepEx'
 import Governance from './pages/Governance'
 import Blog from './pages/Blog'
+import ResearchAndDevelopment from './pages/ResearchAndDevelopment'
+import CompanyPress from './pages/CompanyPress'
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
         <Route path="/identity" element={<Identity />} />
         <Route path="/mission" element={<Mission />} />
         <Route path="/deepex" element={<DeepEx />} />
+        <Route path="/research" element={<ResearchAndDevelopment />} />
         <Route path="/governance" element={<Governance />} />
+        <Route path="/press" element={<CompanyPress />} />
         <Route path="/blog" element={<Blog />} />
       </Routes>
     </>
