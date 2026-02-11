@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -296,16 +297,32 @@ const ExpandedRelease = ({ post, onClose }) => (
    MAIN COMPANY PRESS COMPONENT
    ─────────────────────────────────────────────── */
 const CompanyPress = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [expandedRelease, setExpandedRelease] = useState(null);
 
+    // Sync state with URL param
+    useEffect(() => {
+        if (id) {
+            const release = pressReleases.find(p => p.id === id);
+            if (release) {
+                setExpandedRelease(release);
+                document.body.style.overflow = 'hidden';
+            } else {
+                navigate('/press', { replace: true });
+            }
+        } else {
+            setExpandedRelease(null);
+            document.body.style.overflow = '';
+        }
+    }, [id, navigate]);
+
     const openRelease = (r) => {
-        setExpandedRelease(r);
-        document.body.style.overflow = 'hidden';
+        navigate(`/press/${r.id}`);
     };
 
     const closeRelease = () => {
-        setExpandedRelease(null);
-        document.body.style.overflow = '';
+        navigate('/press');
     };
 
     // Common card style

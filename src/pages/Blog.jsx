@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -319,16 +320,33 @@ const ExpandedArticle = ({ post, onClose }) => (
    MAIN BLOG COMPONENT
    ─────────────────────────────────────────────── */
 const Blog = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [expandedPost, setExpandedPost] = useState(null);
 
+    // Sync state with URL param
+    useEffect(() => {
+        if (id) {
+            const post = blogPosts.find(p => p.id === id);
+            if (post) {
+                setExpandedPost(post);
+                document.body.style.overflow = 'hidden';
+            } else {
+                // If ID is invalid, clear it
+                navigate('/blog', { replace: true });
+            }
+        } else {
+            setExpandedPost(null);
+            document.body.style.overflow = '';
+        }
+    }, [id, navigate]);
+
     const openPost = (post) => {
-        setExpandedPost(post);
-        document.body.style.overflow = 'hidden';
+        navigate(`/blog/${post.id}`);
     };
 
     const closePost = () => {
-        setExpandedPost(null);
-        document.body.style.overflow = '';
+        navigate('/blog');
     };
 
     // Common card style — white bg, black text, border, subtle lift on hover

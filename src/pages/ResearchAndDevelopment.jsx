@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { AlphaReasoningFlow } from '../components/Infographics';
@@ -294,16 +295,32 @@ const ExpandedFinding = ({ post, onClose }) => (
    MAIN R&D COMPONENT
    ─────────────────────────────────────────────── */
 const ResearchAndDevelopment = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [expandedFinding, setExpandedFinding] = useState(null);
 
+    // Sync state with URL param
+    useEffect(() => {
+        if (id) {
+            const finding = researchFindings.find(p => p.id === id);
+            if (finding) {
+                setExpandedFinding(finding);
+                document.body.style.overflow = 'hidden';
+            } else {
+                navigate('/research', { replace: true });
+            }
+        } else {
+            setExpandedFinding(null);
+            document.body.style.overflow = '';
+        }
+    }, [id, navigate]);
+
     const openFinding = (f) => {
-        setExpandedFinding(f);
-        document.body.style.overflow = 'hidden';
+        navigate(`/research/${f.id}`);
     };
 
     const closeFinding = () => {
-        setExpandedFinding(null);
-        document.body.style.overflow = '';
+        navigate('/research');
     };
 
     // Common card style
