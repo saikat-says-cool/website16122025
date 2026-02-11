@@ -38,7 +38,7 @@ const Header = () => {
                 </div>
 
                 {/* Desktop Navigation */}
-                <nav className="desktop-nav">
+                <nav className="desktop-nav" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
                     <ul style={{ display: 'flex', gap: '1.5rem', listStyle: 'none', padding: 0, margin: 0 }}>
                         {navLinks.map((link) => (
                             <li key={link.path}>
@@ -53,6 +53,19 @@ const Header = () => {
                             </li>
                         ))}
                     </ul>
+                    <a href="https://deepex.artificialyze.com" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{
+                        padding: '0.6rem 1.2rem',
+                        fontSize: '0.75rem',
+                        border: '1px solid #000',
+                        color: '#fff',
+                        backgroundColor: '#000',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                        marginLeft: '1rem',
+                        transition: 'all 0.3s ease'
+                    }}>
+                        Try DeepEx ->
+                    </a>
                 </nav>
 
                 {/* Mobile Toggle */}
@@ -97,6 +110,25 @@ const Header = () => {
                                 </Link>
                             </li>
                         ))}
+                        <li>
+                            <a
+                                href="https://deepex.artificialyze.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    fontSize: '1.5rem',
+                                    fontWeight: 500,
+                                    color: '#000',
+                                    display: 'block',
+                                    letterSpacing: '-0.02em',
+                                    marginTop: '1rem',
+                                    borderBottom: '2px solid #000',
+                                    width: 'fit-content'
+                                }}
+                            >
+                                Try DeepEx →
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <div style={{ marginTop: 'auto' }}>

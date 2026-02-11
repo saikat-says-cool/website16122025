@@ -41,6 +41,7 @@ const Footer = () => {
                     <p style={{ marginBottom: '0.8rem', fontSize: '0.9rem' }}><a href="/research" className="hover-underline">Research & Dev</a></p>
                     <p style={{ marginBottom: '0.8rem', fontSize: '0.9rem' }}><a href="/press" className="hover-underline">Company Press</a></p>
                     <p style={{ marginBottom: '0.8rem', fontSize: '0.9rem' }}><a href="/governance" className="hover-underline">Governance</a></p>
+                    <p style={{ marginBottom: '0.8rem', fontSize: '0.9rem' }}><a href="https://deepex.artificialyze.com" target="_blank" rel="noopener noreferrer" className="hover-underline" style={{ fontWeight: 500 }}>Start Reasoning -></a></p>
                 </div>
 
                 <div className="mobile-text-center" style={{ textAlign: 'right' }}>

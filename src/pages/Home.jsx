@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { VerticalExcellenceChart } from '../components/Infographics';
+import DeepExLogo from '../components/DeepExLogo';
 
 const Home = () => {
     return (
@@ -67,14 +68,34 @@ const Home = () => {
                     </div>
 
                     <div style={{ marginTop: '6rem', display: 'flex', gap: '3rem', justifyContent: 'center', flexWrap: 'wrap', position: 'relative', zIndex: 2 }}>
-                        <Link to="/deepex" className="btn-primary" style={{
+                        <a href="https://deepex.artificialyze.com" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{
                             padding: '1.4rem 4rem',
                             backgroundColor: '#000',
                             color: '#fff',
                             fontSize: '0.8rem',
                             letterSpacing: '0.2em',
-                            textTransform: 'uppercase'
-                        }}>Discover DeepEx</Link>
+                            textTransform: 'uppercase',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '1rem',
+                            border: '1px solid #000'
+                        }}>
+                            <DeepExLogo size={20} color="#fff" />
+                            Try DeepEx
+                        </a>
+                        <Link to="/deepex" style={{
+                            padding: '1.4rem 4rem',
+                            backgroundColor: '#fff',
+                            color: '#000',
+                            fontSize: '0.8rem',
+                            letterSpacing: '0.2em',
+                            textTransform: 'uppercase',
+                            display: 'flex',
+                            alignItems: 'center',
+                            border: '1px solid #ddd'
+                        }}>
+                            Learn More
+                        </Link>
                     </div>
                 </section>
 
@@ -132,7 +153,7 @@ const Home = () => {
                     {[
                         { num: '01', title: 'Identity', link: '/identity' },
                         { num: '02', title: 'Mission', link: '/mission' },
-                        { num: '03', title: 'Reasoning', link: '/deepex' },
+                        { num: '03', title: 'Reasoning', link: '/deepex', isDeepEx: true },
                         { num: '04', title: 'Governance', link: '/governance' }
                     ].map((item, i) => (
                         <Link to={item.link} key={i} className="nav-card" style={{
@@ -143,7 +164,13 @@ const Home = () => {
                             position: 'relative'
                         }}>
                             <div className="corner-mark top-left" style={{ width: '5px', height: '5px' }}></div>
-                            <span style={{ display: 'block', fontSize: '3rem', marginBottom: '1rem', fontWeight: 200, color: '#eee', transition: 'color 0.3s' }}>{item.num}</span>
+                            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem', minHeight: '3.6rem', alignItems: 'center' }}>
+                                {item.isDeepEx ? (
+                                    <DeepExLogo size={60} color="#ddd" style={{ transition: 'color 0.3s' }} />
+                                ) : (
+                                    <span style={{ display: 'block', fontSize: '3rem', marginBottom: '1rem', fontWeight: 200, color: '#eee', transition: 'color 0.3s' }}>{item.num}</span>
+                                )}
+                            </div>
                             <span style={{ textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.25em', fontWeight: 500, color: '#000' }}>{item.title}</span>
                             <div className="corner-mark bottom-right" style={{ width: '5px', height: '5px' }}></div>
                         </Link>

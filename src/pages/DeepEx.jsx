@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { AlphaReasoningFlow, DeepExPipelineFlow } from '../components/Infographics';
+import DeepExLogo from '../components/DeepExLogo';
 
 const DeepEx = () => {
     return (
@@ -30,6 +31,11 @@ const DeepEx = () => {
                         <div className="corner-mark bottom-right" style={{ borderColor: 'rgba(255,255,255,0.2)' }}></div>
 
                         <div className="section-tag" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)', marginBottom: '4rem' }}>System Model // 001</div>
+
+                        <div style={{ marginBottom: '2rem' }}>
+                            <DeepExLogo size={80} color="#fff" />
+                        </div>
+
                         <span style={{ color: '#aaa', textTransform: 'uppercase', letterSpacing: '0.4em', marginBottom: '2rem', fontSize: '0.8rem' }}>Reasoning Engine</span>
                         <h1 style={{ fontSize: 'clamp(4rem, 10vw, 12rem)', lineHeight: 0.8, fontWeight: 300, marginLeft: '-0.5rem', marginBottom: '4rem', letterSpacing: '-0.05em', position: 'relative' }}>
                             Deep<br />Ex.
@@ -43,6 +49,21 @@ const DeepEx = () => {
                         </p>
 
                         <div style={{ marginTop: 'auto', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '4rem' }}>
+                            <a href="https://deepex.artificialyze.com" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{
+                                width: '100%',
+                                padding: '1.2rem',
+                                backgroundColor: '#fff',
+                                color: '#000',
+                                fontSize: '0.9rem',
+                                letterSpacing: '0.2em',
+                                textTransform: 'uppercase',
+                                textAlign: 'center',
+                                display: 'block',
+                                marginBottom: '3rem',
+                                fontWeight: 600
+                            }}>
+                                Start Reasoning ->
+                            </a>
                             <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
                                 <div style={{ height: '40px', width: '1px', background: '#fff' }}></div>
                                 <p style={{ fontSize: '1.2rem', color: '#eee', fontWeight: 300, margin: 0 }}>
@@ -299,12 +320,27 @@ const DeepEx = () => {
                         <p style={{ fontSize: '1rem', color: '#888', lineHeight: 1.7, marginBottom: '3rem' }}>
                             Every response is packaged with full transparency. Not just the answer — but how confident the system is, what it assumed, and what remains uncertain.
                         </p>
-                        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', marginBottom: '4rem' }}>
                             {['Explicit Branching', 'Adversarial Thinking', 'Verification', 'Synthesis', 'Escalation'].map((item, i) => (
                                 <span key={i} style={{ fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.2)', padding: '0.5rem 1rem', color: '#aaa' }}>
                                     {item}
                                 </span>
                             ))}
+                        </div>
+
+                        <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '4rem' }}>
+                            <a href="https://deepex.artificialyze.com" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{
+                                padding: '1.5rem 5rem',
+                                backgroundColor: '#fff',
+                                color: '#000',
+                                fontSize: '1rem',
+                                letterSpacing: '0.2em',
+                                textTransform: 'uppercase',
+                                display: 'inline-block',
+                                fontWeight: 600
+                            }}>
+                                Try DeepEx Now
+                            </a>
                         </div>
                     </div>
                 </section>
